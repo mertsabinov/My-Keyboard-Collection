@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using web.Models;
 
 namespace web.Controllers
 {
@@ -10,6 +11,12 @@ namespace web.Controllers
     {
         public ActionResult Index()
         {
+            var keyboards = DbManager.Data;
+            if (keyboards == null)
+            {
+                keyboards = new List<Keyboard>();
+            }
+            ViewBag.Keyboards = keyboards;
             return View();
         }
     }
