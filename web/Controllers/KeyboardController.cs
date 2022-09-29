@@ -1,3 +1,4 @@
+using System;
 using System.Web.Mvc;
 using web.Models;
 
@@ -14,7 +15,9 @@ namespace web.Controllers
         [HttpPost]
         public ActionResult Save(Keyboard keyboard)
         {
-            ViewBag.Name = keyboard.Name;
+            keyboard.Id = Guid.NewGuid().ToString();
+            DbManager.Data.Add(keyboard);
+            ViewBag.Keyboard = keyboard;
             return View();
         }
     }
