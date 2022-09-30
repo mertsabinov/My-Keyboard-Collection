@@ -16,8 +16,7 @@ namespace web.Controllers
             {
                 keyboards = new List<Keyboard>();
             }
-            ViewBag.Keyboards = keyboards;
-            return View();
+            return View(keyboards);
         }
     }
 }

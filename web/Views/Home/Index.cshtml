@@ -1,4 +1,5 @@
-﻿<!doctype html>
+﻿@model List<web.Models.Keyboard>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -9,7 +10,7 @@
 </head>
 <body>
 <div class="keyboard-list-container" >
-    @foreach (var keyboard in ViewBag.Keyboards)
+    @foreach (var keyboard in @Model)
     {
         <div class="card" >
             <img src="@keyboard.Img" alt="img" />
