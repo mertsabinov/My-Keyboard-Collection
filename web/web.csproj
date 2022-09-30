@@ -124,6 +124,7 @@
         </Compile>
         <Compile Include="Models\DbManager.cs" />
         <Compile Include="Models\Keyboard.cs" />
+        <Compile Include="Models\User.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
@@ -155,6 +156,7 @@
         <Content Include="Views\Keyboard\Index.cshtml" />
         <Content Include="Views\Keyboard\Save.cshtml" />
         <Content Include="Views\Login\Index.cshtml" />
+        <Content Include="Views\Login\Login.cshtml" />
         <Content Include="Web.config" />
         <Content Include="Web.Debug.config">
             <DependentUpon>Web.config</DependentUpon>

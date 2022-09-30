@@ -9,7 +9,20 @@ namespace web.Controllers
         // GET
         public ActionResult Index()
         {
-            return View();
+            string userName;
+            try
+            {
+                userName = HttpContext.Session["UserName"].ToString();
+            }
+            catch (Exception e)
+            {
+                userName = "";
+            }
+            if (userName == "admin")
+            {
+                return View();
+            }
+            return new RedirectResult("/Login");
         }
         
         [HttpPost]
