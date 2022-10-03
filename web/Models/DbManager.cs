@@ -15,13 +15,18 @@ namespace web.Models
             return user;
         }
 
-        public static void UserRegister(string userName, string password)
+        public static string UserRegister(string userName, string password)
         {
-            User u = new User();
-            u.Id = Guid.NewGuid().ToString();
-            u.UserName = userName;
-            u.Password = password;
-            UserData.Add(u);
+            if ( UserData.Find(u => u.UserName.Equals(userName)) is null)
+            {
+                User u = new User();
+                u.Id = Guid.NewGuid().ToString();
+                u.UserName = userName;
+                u.Password = password;
+                UserData.Add(u);
+                return "";
+            }
+            return "This username already exist";
         }
 
         public static User UserGetId(string id)
