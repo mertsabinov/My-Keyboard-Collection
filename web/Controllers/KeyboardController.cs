@@ -9,17 +9,20 @@ namespace web.Controllers
         // GET
         public ActionResult Index()
         {
-            string userName;
+            string userId;
+            string userName = "";
             try
             {
-                userName = HttpContext.Session["UserName"].ToString();
+                userId = HttpContext.Session["userId"].ToString();
             }
             catch (Exception e)
             {
-                userName = "";
+                userId = "";
             }
-            if (userName == "admin")
+            userName = DbManager.UserGetUserName(userId);
+            if (userName != "")
             {
+                ViewBag.UserName = userName;
                 return View();
             }
             return new RedirectResult("/Login");

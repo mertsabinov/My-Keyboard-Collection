@@ -1,12 +1,12 @@
 ﻿@{
-    string userName;
+    string userId;
     try
     {
-        userName = Session["UserName"].ToString();
+        userId = Session["userId"].ToString();
     }
     catch (Exception e)
     {
-        userName = "";
+        userId = "";
     }
 }
 
@@ -22,7 +22,7 @@
 <div class="navbar">
     <a href="/" >Home</a>
     @{
-        if (userName == "admin")
+        if (userId != "")
         {
             <a href="/keyboard" >Keyboard</a>
         }
@@ -30,7 +30,7 @@
     <a href="/about" >About</a>
     <a href="/contact" >Contact</a>
     @{
-        if (userName != "admin")
+        if (userId == "")
         {
             <a href="/login">Login</a>
         }

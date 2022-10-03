@@ -14,11 +14,12 @@ namespace web.Controllers
         [HttpPost]
         public ActionResult Login(User user)
         {
-            if (user.UserName == "admin" && user.Password == "admin123")
+            User u = DbManager.UserLogin(user.UserName,user.Password);
+            if (u != null)
             {
-                HttpContext.Session["UserName"] = user.UserName; 
+                HttpContext.Session["userID"] = u.Id;
                 return new RedirectResult("/keyboard");
-            } 
+            }
             return View("Index");
         }
 
