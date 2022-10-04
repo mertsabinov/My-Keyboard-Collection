@@ -32,7 +32,7 @@ namespace web.Controllers
         public ActionResult Save(Keyboard keyboard)
         {
             keyboard.Id = Guid.NewGuid().ToString();
-            DbManager.Data.Add(keyboard);
+            DbManager.AddKeyboard(keyboard);
             ViewBag.Keyboard = keyboard;
             return View();
         }

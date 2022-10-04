@@ -11,7 +11,7 @@ namespace web.Controllers
     {
         public ActionResult Index()
         {
-            var keyboards = DbManager.Data;
+            var keyboards = DbManager.GetAllData();
             if (keyboards == null)
             {
                 keyboards = new List<Keyboard>();
