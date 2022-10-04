@@ -13,13 +13,13 @@ namespace web.Controllers
          [HttpPost]
         public ActionResult Register(User user)
         {
-            string error = DbManager.UserRegister(user.UserName, user.Password);
+            string error = UserDbManager.UserRegister(user.UserName, user.Password);
             if (error != "")
             {
                 ViewBag.error = error;
                 return View();
             }
-            User u = DbManager.UserLogin(user.UserName,user.Password);
+            User u = UserDbManager.UserLogin(user.UserName,user.Password);
             if (u != null)
             {
                 HttpContext.Session["userID"] = u.Id;

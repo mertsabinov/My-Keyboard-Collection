@@ -19,7 +19,7 @@ namespace web.Controllers
             {
                 userId = "";
             }
-            userName = DbManager.UserGetUserName(userId);
+            userName = UserDbManager.UserGetUserName(userId);
             if (userName != "")
             {
                 ViewBag.UserName = userName;

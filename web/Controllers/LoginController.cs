@@ -14,7 +14,7 @@ namespace web.Controllers
         [HttpPost]
         public ActionResult Login(User user)
         {
-            User u = DbManager.UserLogin(user.UserName,user.Password);
+            User u = UserDbManager.UserLogin(user.UserName,user.Password);
             if (u != null)
             {
                 HttpContext.Session["userID"] = u.Id;
