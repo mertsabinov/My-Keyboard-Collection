@@ -22,7 +22,7 @@ namespace web.Controllers
             userName = UserDbManager.UserGetUserName(userId);
             if (userName != "")
             {
-                ViewBag.UserName = userName;
+                HttpContext.Session["userName"] = userName;
                 return View();
             }
             return new RedirectResult("/Login");
@@ -32,6 +32,7 @@ namespace web.Controllers
         public ActionResult Save(Keyboard keyboard)
         {
             keyboard.Id = Guid.NewGuid().ToString();
+            keyboard.Ownr = HttpContext.Session["userName"].ToString();
             DbManager.AddKeyboard(keyboard);
             ViewBag.Keyboard = keyboard;
             return View();

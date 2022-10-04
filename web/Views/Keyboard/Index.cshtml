@@ -7,11 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Hello, @ViewBag.UserName</h1>
+<h1>Hello, @Session["userName"].ToString()</h1>
 <form class="form-container" method="post" action="../Keyboard/Save">
-    <input type="text" name="name" placeholder="name"/>
-    <input type="url" name="img" placeholder="img-url"/>
-    <input type="text" name="description" placeholder="description"/>
+    <input type="text" name="name" placeholder="name" required="required" />
+    <input type="url" name="img" placeholder="img-url" required="required" />
+    <input type="text" name="description" placeholder="description" required="required" />
     <button type="submit">Send</button>
 </form>
 </body>
