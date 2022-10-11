@@ -8,7 +8,11 @@ namespace web.Controllers
         // GET
         public ActionResult Index()
         {
-            return View();
+            if (HttpContext.Session["userID"] is null )
+            {
+                return View();
+            }
+            return Redirect("/");
         }
          [HttpPost]
         public ActionResult Register(User user)

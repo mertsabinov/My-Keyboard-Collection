@@ -8,7 +8,12 @@ namespace web.Controllers
         // GET
         public ActionResult Index()
         {
-            return View();
+            if (HttpContext.Session["userID"] is null )
+            {
+                return View();
+            }
+
+            return Redirect("/");
         }
         
         [HttpPost]
@@ -26,7 +31,7 @@ namespace web.Controllers
         public ActionResult Logout()
         {
             HttpContext.Session.Clear();
-            return new RedirectResult("/");
+            return Redirect("/");
         }
     }
 }
